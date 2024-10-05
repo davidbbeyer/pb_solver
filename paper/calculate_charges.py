@@ -8,7 +8,7 @@ from pb_solver import *
 bjerrum_length = 0.7
 r_colloid = 359 * 0.5
 phi_colloid = 4e-3
-n_surface_groups = 46000#134000
+n_surface_groups = 134000
 
 def interpolate_charge(pH_range, charges, pH):
     """
