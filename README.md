@@ -1,7 +1,7 @@
 # A Poisson-Boltzmann Solver for Charge-Regulating Colloids
 
 This repository contains a code that numerically solves the Poisson-Boltzmann equation for a spherical colloid in a cell, coupled to a reservoir at a given pH-value and monovalent salt concentration, with either a constant charge (Neumann) or a self-consistent charge-regulation boundary condition on the colloid surface.
-It was used to the produce the theoretical results in this [preprint](https://doi.org/10.48550/arXiv.2409.03049).
+It was used to the produce the theoretical results in this [paper](https://doi.org/10.1039/D4SM00957F).
 The code also contains functionality to obtain the renormalized (effective) charge of the colloid using the [Trizac](https://doi.org/10.1021/la027056m) prescription.
 Internally, the code uses open-source Python modules, including Numpy and Scipy for numerical operations, Pandas for data processing and Pint for unit conversions.
 
@@ -68,14 +68,17 @@ The included checks are:
 
 ## References
 
-Check out the corresponding [preprint](https://doi.org/10.48550/arXiv.2409.03049) and references therein to learn more about Poisson-Boltzmann theory, charge regulation, charge renormalization and applications of the solver.
+Check out the corresponding [paper](https://doi.org/10.1039/D4SM00957F) and references therein to learn more about Poisson-Boltzmann theory, charge regulation, charge renormalization and applications of the solver.
 
 ```bibtex
 @article{vogel2024co2,
   title={CO2-induced Drastic Decharging of Dielectric Surfaces in Aqueous Suspensions},
   author={Vogel, Peter and Beyer, David and Holm, Christian and Palberg, Thomas},
-  journal={arXiv preprint},
+  journal={Soft Matter},
+  volume={20},
+  number={46},
+  pages={9261--9272},
   year={2024},
-  doi={10.48550/arXiv.2409.03049},
+  publisher={Royal Society of Chemistry},
 }
 ```
