@@ -1,13 +1,14 @@
 import sys
 import os
 import csv
+import tqdm
 sys.path.append(os.path.abspath('..'))
 from pb_solver import *
 
 # Input parameters
 bjerrum_length = 0.7
 r_colloid = 359 * 0.5
-phi_colloid = 4e-3
+phi_colloid = 3e-3
 n_surface_groups = 134000
 
 def interpolate_charge(pH_range, charges, pH):
@@ -45,12 +46,15 @@ def calculate_charges(pKa, pH_range):
 
     return pKa, bare_charge_pH_7, effective_charge_pH_7, bare_charge_pH_55, effective_charge_pH_55
 
-pKa_range = np.linspace(0.0, 7.0, 100)
+#pKa_range = np.linspace(0.0, 7.0, 100)
+#pKa_range = np.linspace(3.0, 8.0, 100)
+#pKa_range = np.linspace(7.3, 8.0, 15)
+pKa_range = np.linspace(8.0, 10.5, 25)
 pH_range = np.linspace(1.0, 13.0, 200)
 existing_pKs = []
 
 # Load existing data
-filename = './data_old.csv'
+filename = './data_0003.csv'
 if os.path.exists(filename):
     with open(filename, 'r', newline='') as file:
         reader = csv.reader(file)
@@ -58,7 +62,7 @@ if os.path.exists(filename):
             if row:
                 existing_pKs.append(float(row[0])) 
 
-for pKa in pKa_range:
+for pKa in tqdm.tqdm(pKa_range):
     print(pKa)
     if pKa not in existing_pKs:
         values = calculate_charges(pKa, pH_range)
