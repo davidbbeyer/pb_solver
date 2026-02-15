@@ -154,6 +154,7 @@ ax2.legend(frameon=False)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.4)
+plt.savefig("renormalized_charge.png", dpi=600)
 plt.show()
 plt.close()
 exit()

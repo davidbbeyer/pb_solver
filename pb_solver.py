@@ -181,7 +181,7 @@ class PB_Solver:
             initial_guess = np.zeros((2, r.size))
 
         jac = lambda r, phi: self.calculate_jacobian(r, phi, self.prefactor)
-        numerical_solution = scipy.integrate.solve_bvp(derivatives, bc, r, initial_guess, tol=1e-11, max_nodes=int(1e12))
+        numerical_solution = scipy.integrate.solve_bvp(derivatives, bc, r, initial_guess, tol=1e-11, max_nodes=int(1e10))
         if numerical_solution.status != 0:
             raise RuntimeError(f"solve_bvp did not converge: {numerical_solution.message}")
         return r, numerical_solution
